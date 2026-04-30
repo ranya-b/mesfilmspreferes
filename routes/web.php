@@ -8,6 +8,7 @@ use App\Http\Controllers\FavorisController;
 use App\Http\Controllers\PartageController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RechercherFilmController;
+use App\Http\Controllers\FilmDetailController;
 use App\Models\Partage;
 use Illuminate\Support\Facades\Route;
 
@@ -59,5 +60,9 @@ Route::middleware('auth')->group(function () {
     Route::controller(ProfilController::class)->group(function () {
         Route::get('/profil','show')->name('profil.show');
         Route::post('/profil/mettre-a-jour','update')->name('profil.update');
+    });
+
+    Route::controller(FilmDetailController::class)->group(function () {
+        Route::get('/film/{id}', 'show')->name('film.detail');
     });
 });

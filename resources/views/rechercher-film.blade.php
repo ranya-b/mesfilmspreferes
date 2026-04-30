@@ -47,13 +47,20 @@
                     @foreach($results as $film)
                     <div class="col-md-6 col-lg-4">
                         <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease;">
-                            @if(isset($film['poster_path']) && $film['poster_path'])
-                                <img src="https://image.tmdb.org/t/p/w500{{ $film['poster_path'] }}" alt="{{ $film['title'] ?? $film['name'] }}" style="width: 100%; height: 400px; object-fit: cover;">
-                            @else
-                                <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #3b82f6, #60a5fa); display: flex; align-items: center; justify-content: center;">
-                                    <i class="bi bi-film" style="font-size: 64px; color: white; opacity: 0.5;"></i>
+                            <a href="{{ route('film.detail', $film['id']) }}" style="display:block;position:relative;overflow:hidden;">
+                                @if(isset($film['poster_path']) && $film['poster_path'])
+                                    <img src="https://image.tmdb.org/t/p/w500{{ $film['poster_path'] }}" alt="{{ $film['title'] ?? $film['name'] }}" style="width:100%;height:400px;object-fit:cover;transition:transform 0.3s ease;">
+                                @else
+                                    <div style="width:100%;height:400px;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-film" style="font-size:64px;color:white;opacity:0.5;"></i>
+                                    </div>
+                                @endif
+                                <div style="position:absolute;inset:0;background:rgba(0,0,0,0);transition:background 0.2s ease;display:flex;align-items:center;justify-content:center;" class="poster-overlay">
+                                    <span style="background:white;color:#1d1d1f;padding:8px 16px;border-radius:20px;font-size:14px;font-weight:500;opacity:0;transition:opacity 0.2s ease;" class="voir-detail">
+                                        <i class="bi bi-eye me-1"></i>Voir le détail
+                                    </span>
                                 </div>
-                            @endif
+                            </a>
                             <div style="padding: 20px;">
                                 <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #1d1d1f;">{{ $film['title'] ?? $film['name'] }}</h3>
                                 @if(isset($film['release_date']) && $film['release_date'])
@@ -88,4 +95,10 @@
         @endif
     </div>
 </div>
+
+<style>
+a:hover .poster-overlay { background: rgba(0,0,0,0.35) !important; }
+a:hover .voir-detail { opacity: 1 !important; }
+a:hover img { transform: scale(1.03); }
+</style>
 @endsection

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favori;
+use App\Models\User;
+use App\Models\FriendUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FilmDetailController extends Controller
 {
@@ -34,6 +38,19 @@ class FilmDetailController extends Controller
             abort(404);
         }
 
-        return view('film-detail', compact('film', 'director', 'cast'));
+        // Vérifier si le film est déjà en favori
+        $favori = Favori::where('user_id', Auth::id())
+            ->where('favori_id', $id)
+            ->first();
+
+        // Récupérer les amis
+        $userId = Auth::id();
+        $amis = User::whereIn('id', function($query) use ($userId) {
+            $query->select('friend_id')->from('friend_user')->where('user_id', $userId);
+        })->orWhereIn('id', function($query) use ($userId) {
+            $query->select('user_id')->from('friend_user')->where('friend_id', $userId);
+        })->where('id', '!=', $userId)->get();
+
+        return view('film-detail', compact('film', 'director', 'cast', 'favori', 'amis'));
     }
 }

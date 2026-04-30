@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Favori;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,11 +11,19 @@ class FavorisController extends Controller
 {
     public function index()
     {
-        $favoris = Favori::where('user_id', Auth::id())
+        $userId = Auth::id();
+
+        $favoris = Favori::where('user_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
-        
-        return view('favoris', compact('favoris'));
+
+        $amis = User::whereIn('id', function($query) use ($userId) {
+            $query->select('friend_id')->from('friend_user')->where('user_id', $userId);
+        })->orWhereIn('id', function($query) use ($userId) {
+            $query->select('user_id')->from('friend_user')->where('friend_id', $userId);
+        })->where('id', '!=', $userId)->get();
+
+        return view('favoris', compact('favoris', 'amis'));
     }
 
     public function store(Request $request)
@@ -27,7 +36,6 @@ class FavorisController extends Controller
             'film_overview' => 'nullable|string',
         ]);
 
-        // Vérifier si le film n'est pas déjà en favoris
         $existing = Favori::where('user_id', Auth::id())
             ->where('favori_id', $request->film_id)
             ->first();

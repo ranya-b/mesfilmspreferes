@@ -8,305 +8,395 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
         :root {
-            --apple-gray-1: #f5f5f7;
-            --apple-gray-2: #e8e8ed;
-            --apple-gray-3: #d2d2d7;
-            --apple-gray-4: #86868b;
-            --apple-gray-5: #1d1d1f;
-            --apple-blue: #0071e3;
-            --apple-blue-hover: #0077ed;
-            --color-primary: #6366f1;
-            --color-primary-light: #818cf8;
-            --color-accent: #ec4899;
-            --color-accent-light: #f472b6;
-            --color-success: #10b981;
-            --color-warning: #f59e0b;
+            --noir: #0a0a0a;
+            --noir-2: #111111;
+            --noir-3: #1a1a1a;
+            --noir-4: #242424;
+            --noir-5: #2e2e2e;
+            --or: #c9a84c;
+            --or-clair: #e2c97e;
+            --or-sombre: #8a6d2f;
+            --blanc: #f5f0e8;
+            --blanc-2: #d4cfc4;
+            --blanc-3: #8a8478;
+            --accent: #c9a84c;
         }
-        
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            padding-top: 60px;
-            background: linear-gradient(180deg, #fafafa 0%, #f5f5f7 100%);
+            background-color: var(--noir);
+            color: var(--blanc);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.7;
+            padding-top: 72px;
             min-height: 100vh;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 17px;
-            line-height: 1.47059;
-            color: var(--apple-gray-5);
-            letter-spacing: -0.022em;
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.06) 0%, transparent 60%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
         }
-        
+
+        /* ─── NAVBAR ─── */
         .navbar {
-            background-color: rgba(251, 251, 253, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(24px) saturate(150%);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            height: 72px;
             padding: 0;
-            height: 60px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
         }
-        
-        @media (max-width: 991px) {
-            .navbar {
-                background-color: #ffffff;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
-        }
-        
+
         .navbar .container-fluid {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 22px;
+            padding: 0 32px;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
-        
+
         .navbar-brand {
-            font-weight: 600;
-            font-size: 19px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.01em;
-            padding: 0;
-            margin-right: 40px;
-            transition: opacity 0.2s ease;
-        }
-        
-        .navbar-brand:hover {
-            opacity: 0.8;
-        }
-        
-        .navbar-nav {
-            gap: 8px;
-        }
-        
-        .nav-link {
-            color: var(--apple-gray-5);
+            font-family: 'Outfit', serif;
             font-weight: 400;
-            font-size: 17px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            letter-spacing: -0.022em;
+            font-size: 22px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--or) !important;
+            text-decoration: none;
+            margin-right: 48px;
+            transition: color 0.3s ease;
+            flex-shrink: 0;
         }
-        
-        .nav-link:hover {
-            color: var(--color-primary);
-        }
-        
-        .nav-link i {
-            font-size: 16px;
-            opacity: 0.7;
-            transition: all 0.2s ease;
-        }
-        
-        .nav-link:hover i {
-            opacity: 1;
-        }
-        
-        .nav-item:nth-child(1) .nav-link i { color: var(--color-primary); }
-        .nav-item:nth-child(2) .nav-link i { color: #3b82f6; }
-        .nav-item:nth-child(3) .nav-link i { color: var(--color-accent); }
-        .nav-item:nth-child(4) .nav-link i { color: var(--color-success); }
-        .nav-item:nth-child(5) .nav-link i { color: #8b5cf6; }
-        .nav-item:nth-child(6) .nav-link i { color: var(--color-warning); }
-        
-        .nav-item:nth-child(1) .nav-link:hover { background-color: rgba(99, 102, 241, 0.1); }
-        .nav-item:nth-child(2) .nav-link:hover { background-color: rgba(59, 130, 246, 0.1); color: #3b82f6; }
-        .nav-item:nth-child(3) .nav-link:hover { background-color: rgba(236, 72, 153, 0.1); color: var(--color-accent); }
-        .nav-item:nth-child(4) .nav-link:hover { background-color: rgba(16, 185, 129, 0.1); color: var(--color-success); }
-        .nav-item:nth-child(5) .nav-link:hover { background-color: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-        .nav-item:nth-child(6) .nav-link:hover { background-color: rgba(245, 158, 11, 0.1); color: var(--color-warning); }
-        
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 40px 22px;
-            background-color: transparent;
+
+        .navbar-brand:hover { color: var(--or-clair) !important; }
+
+        .navbar-nav { gap: 4px; }
+
+        .nav-link {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blanc-2) !important;
+            padding: 8px 14px !important;
+            border-radius: 4px;
+            transition: all 0.25s ease;
             position: relative;
         }
-        
-        .container::before {
+
+        .nav-link::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            bottom: 4px; left: 14px; right: 14px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+            background: var(--or);
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+            transform-origin: left;
         }
-        
-        h1 {
-            font-size: 48px;
-            font-weight: 600;
-            line-height: 1.08349;
-            letter-spacing: -0.003em;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 24px;
+
+        .nav-link:hover {
+            color: var(--or-clair) !important;
         }
-        
-        h2 {
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 1.125;
-            letter-spacing: 0.004em;
-            color: var(--apple-gray-5);
-            margin-bottom: 16px;
-        }
-        
-        p {
-            font-size: 17px;
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
-            color: var(--apple-gray-4);
-        }
-        
-        .form-control {
-            background-color: #ffffff;
-            border: 1px solid var(--apple-gray-2);
-            border-radius: 12px;
-            padding: 12px 16px;
-            font-size: 17px;
-            font-weight: 400;
-            color: var(--apple-gray-5);
-            transition: all 0.2s ease;
-            height: auto;
-        }
-        
-        .form-control:focus {
-            background-color: #ffffff;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-            outline: none;
-        }
-        
-        .form-control::placeholder {
-            color: var(--apple-gray-3);
-        }
-        
-        label {
-            font-weight: 500;
-            font-size: 15px;
-            color: var(--apple-gray-5);
-            margin-bottom: 8px;
-            display: block;
-            letter-spacing: -0.016em;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            border: none;
-            border-radius: 12px;
-            padding: 12px 24px;
-            font-size: 17px;
-            font-weight: 500;
-            color: #ffffff;
-            transition: all 0.2s ease;
-            letter-spacing: -0.022em;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-        }
-        
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-        
-        .btn-link {
-            color: var(--apple-gray-5);
-            text-decoration: none;
-            padding: 0;
-            font-weight: 400;
-        }
-        
-        .btn-link:hover {
-            color: var(--apple-gray-5);
-            background-color: var(--apple-gray-1);
-        }
-        
-        .alert {
-            border-radius: 12px;
-            border: none;
-            padding: 16px 20px;
-            font-size: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-        
-        .alert-success {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-            color: #059669;
-            border-left: 3px solid var(--color-success);
-        }
-        
+
+        .nav-link:hover::after { transform: scaleX(1); }
+
+        .nav-link i { font-size: 13px; opacity: 0.6; margin-right: 6px; }
+
         .navbar-toggler {
-            border: none;
-            padding: 8px;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 4px;
+            padding: 6px 10px;
+            color: var(--or);
         }
-        
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-        
+        .navbar-toggler:focus { box-shadow: 0 0 0 2px rgba(201,168,76,0.2); }
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(201,168,76,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
-        
+
         @media (max-width: 991px) {
             .navbar-collapse {
-                background-color: #ffffff;
-                margin-top: 12px;
+                background: var(--noir-2);
+                border: 1px solid rgba(201,168,76,0.15);
+                border-radius: 8px;
                 padding: 16px;
-                border-radius: 12px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                border: 0.5px solid rgba(0, 0, 0, 0.08);
-            }
-            
-            .navbar-collapse.show {
-                background-color: #ffffff;
-            }
-            
-            .navbar-nav {
-                padding: 0;
-            }
-            
-            .nav-link {
-                padding: 12px 16px;
-                margin: 4px 0;
-            }
-            
-            h1 {
-                font-size: 40px;
+                margin-top: 8px;
             }
         }
-        
+
+        /* ─── LAYOUT ─── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 56px 32px;
+            background: transparent;
+        }
+
         @media (max-width: 767px) {
-            .container {
-                padding: 32px 16px;
-            }
-            
-            h1 {
-                font-size: 32px;
-            }
+            .container { padding: 40px 16px; }
+        }
+
+        /* ─── TYPOGRAPHY ─── */
+        h1 {
+            font-family: 'Outfit', serif;
+            font-weight: 300;
+            font-size: 56px;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            color: var(--blanc);
+            margin-bottom: 32px;
+        }
+
+        h1 .gold { color: var(--or); }
+
+        h2 {
+            font-family: 'Outfit', serif;
+            font-weight: 400;
+            font-size: 32px;
+            color: var(--blanc);
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        h3 {
+            font-family: 'Outfit', serif;
+            font-weight: 400;
+            font-size: 22px;
+            color: var(--blanc);
+        }
+
+        p { color: var(--blanc-3); }
+
+        label {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blanc-3);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ─── FORMS ─── */
+        .form-control, .form-select {
+            background: var(--noir-3);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 4px;
+            color: var(--blanc);
+            padding: 12px 16px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: var(--noir-3);
+            border-color: var(--or);
+            box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+            color: var(--blanc);
+            outline: none;
+        }
+
+        .form-control::placeholder { color: var(--blanc-3); }
+
+        select.form-control option, .form-select option {
+            background: var(--noir-3);
+            color: var(--blanc);
+        }
+
+        textarea.form-control { resize: none; }
+
+        /* ─── BUTTONS ─── */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--or-sombre), var(--or));
+            border: none;
+            border-radius: 4px;
+            color: var(--noir);
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 12px 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(201,168,76,0.2);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--or), var(--or-clair));
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(201,168,76,0.3);
+            color: var(--noir);
+        }
+
+        .btn-primary:active { transform: translateY(0); color: var(--noir); }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 4px;
+            color: var(--or);
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(201,168,76,0.08);
+            border-color: var(--or);
+            color: var(--or-clair);
+        }
+
+        .btn-danger-ghost {
+            background: transparent;
+            border: 1px solid rgba(180,60,60,0.3);
+            border-radius: 4px;
+            color: #c06060;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-danger-ghost:hover {
+            background: rgba(180,60,60,0.1);
+            border-color: #c06060;
+            color: #e08080;
+        }
+
+        /* ─── CARDS ─── */
+        .card-luxe {
+            background: var(--noir-2);
+            border: 1px solid rgba(201,168,76,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-luxe:hover {
+            border-color: rgba(201,168,76,0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+        }
+
+        /* ─── DIVIDER ─── */
+        .divider-or {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--or), transparent);
+            margin: 32px 0;
+            opacity: 0.4;
+        }
+
+        /* ─── ALERT ─── */
+        .alert {
+            border-radius: 4px;
+            border: none;
+            padding: 14px 20px;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .alert-success {
+            background: rgba(201,168,76,0.08);
+            color: var(--or-clair);
+            border-left: 2px solid var(--or);
+        }
+
+        .alert-danger {
+            background: rgba(180,60,60,0.08);
+            color: #e08080;
+            border-left: 2px solid #c06060;
+        }
+
+        /* ─── NAV LINK BTN ─── */
+        .btn-link {
+            background: none;
+            border: none;
+            padding: 8px 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blanc-2);
+            cursor: pointer;
+            transition: color 0.25s ease;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .btn-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px; left: 14px; right: 14px;
+            height: 1px;
+            background: var(--or);
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+            transform-origin: left;
+        }
+
+        .btn-link:hover { color: var(--or-clair); }
+        .btn-link:hover::after { transform: scaleX(1); }
+
+        /* ─── BADGE OR ─── */
+        .badge-or {
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.3);
+            color: var(--or-clair);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        /* ─── SCROLLBAR ─── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--noir); }
+        ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--or); }
+
+        /* ─── LIENS ─── */
+        a { color: var(--or); text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: var(--or-clair); }
+
+        /* ─── PAGE FADE IN ─── */
+        main { animation: fadeUp 0.5s ease both; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('accueil') }}">MES FILMS PRÉFÉRÉS</a>
+            <a class="navbar-brand" href="{{ route('accueil') }}">
+                Mes Films Préférés
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -315,27 +405,27 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('rechercherFilm') }}">
-                            <i class="bi bi-search me-1"></i>Rechercher
+                            <i class="bi bi-search"></i>Rechercher
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('favoris') }}">
-                            <i class="bi bi-heart me-1"></i>Favoris
+                            <i class="bi bi-heart"></i>Favoris
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('amis.index') }}">
-                            <i class="bi bi-people me-1"></i>Amis
+                            <i class="bi bi-people"></i>Amis
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('partages.index') }}">
-                            <i class="bi bi-share me-1"></i>Partages
+                            <i class="bi bi-share"></i>Partages
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('profil.show') }}">
-                            <i class="bi bi-person-circle me-1"></i>Profil
+                            <i class="bi bi-person-circle"></i>Profil
                         </a>
                     </li>
                 </ul>
@@ -344,20 +434,20 @@
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">
-                                <i class="bi bi-box-arrow-in-right me-1"></i>Connexion
+                                <i class="bi bi-box-arrow-in-right"></i>Connexion
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('creerCompte') }}">
-                                <i class="bi bi-person-plus me-1"></i>Créer un compte
+                                <i class="bi bi-person-plus"></i>Créer un compte
                             </a>
                         </li>
                     @else
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}" class="d-inline">
                                 @csrf
-                                <button class="btn btn-link nav-link" type="submit">
-                                    <i class="bi bi-box-arrow-right me-1"></i>Déconnexion
+                                <button class="btn-link nav-link" type="submit">
+                                    <i class="bi bi-box-arrow-right"></i>Déconnexion
                                 </button>
                             </form>
                         </li>
@@ -369,10 +459,18 @@
 
     <main>
         @if(session('success'))
-            <div class="container">
+            <div class="container" style="padding-bottom:0;">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <i class="bi bi-check-circle me-2"></i>{{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close" style="filter:invert(1) sepia(1) saturate(2) hue-rotate(10deg);opacity:0.6;"></button>
+                </div>
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="container" style="padding-bottom:0;">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-circle me-2"></i>{{ session('error') }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close" style="opacity:0.6;"></button>
                 </div>
             </div>
         @endif

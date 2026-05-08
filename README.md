@@ -26,30 +26,30 @@ API externe
 1. Créer un compte
 Rendez-vous sur la page d'inscription et renseignez vos informations (nom, prénom, nom d'utilisateur, adresse mail et mot de passe). Une fois le formulaire validé, vous êtes automatiquement connecté et redirigé vers l'accueil.
 
-![Création de compte](docs/screenshots/inscription.png)
+![Création de compte](docs/screens/1.png)
 
 2. Rechercher un film
 Depuis la barre de navigation, accédez à la page "Rechercher un film". Tapez le titre d'un film dans le champ de recherche : les résultats proviennent de l'API TMDB et s'affichent avec l'affiche, le titre et l'année de sortie.
 
-![Recherche de film](docs/screenshots/recherche.png)
+![Recherche de film](docs/screens/2.png)
 
 3. Ajouter un film en favori
-Sur la page de recherche, cliquez sur le bouton **Ajouter aux favoris** sous le film souhaité. Le film apparaît ensuite dans votre liste de favoris.
+Sur la page de recherche, cliquez sur le bouton "Ajouter aux favoris" sous le film souhaité. Le film apparaît ensuite dans votre liste de favoris.
 
-![Favoris](docs/screenshots/favoris.png)
+![Favoris](docs/screens/3.png)
 
 4. Gérer ses amis
-Depuis la page **Amis**, recherchez un utilisateur par son nom d'utilisateur et envoyez-lui une demande d'ami. Vous pouvez également supprimer un ami depuis cette même page.
+Depuis la page "Amis", recherchez un utilisateur par son nom d'utilisateur et envoyez-lui une demande d'ami. Vous pouvez également supprimer un ami depuis cette même page.
 
-![Gestion des amis](docs/screenshots/amis.png)
+![Gestion des amis](docs/screens/4.png)
 
 5. Partager un film
-Depuis votre liste de favoris, partagez un film à l'un de vos amis en sélectionnant le destinataire et en ajoutant un message optionnel. Les films reçus et envoyés sont visibles dans la page **Partages**.
+Depuis votre liste de favoris, partagez un film à l'un de vos amis en sélectionnant le destinataire et en ajoutant un message optionnel. Les films reçus et envoyés sont visibles dans la page "Partages".
 
-![Partage de film](docs/screenshots/partages.png)
+![Partage de film](docs/screens/5.png)
 
 
 
 ## MCD
 
-![MCD](docs/mcd.png)
+![MCD](docs/screens/6.png)

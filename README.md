@@ -1,59 +1,55 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Mes Films Préférés
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Application web permettant à des utilisateurs inscrits de rechercher des films via l'API TMDB, de gérer leur liste de favoris et de partager des films avec leurs amis.
 
-## About Laravel
+"Application en ligne" : [mesfilmspreferes.ranya.portfoliobtssio66.fr](https://mesfilmspreferes.ranya.portfoliobtssio66.fr/)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technologies utilisées
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Backend
+- "Laravel (PHP)" — framework utilsé pour la gestion des routes, contrôleurs et migrations
+- "PHP" — langage serveur pour la logique métier
+- "MySQL" — base de données relationnelle (hébergée sur O2Switch)
 
-## Learning Laravel
+Frontend
+- "Blade" — moteur de templates natif Laravel pour les vues HTML dynamiques
+- "Bootstrap Icons" — bibliothèque d'icônes CSS
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+API externe
+- "TMDB API" (The Movie Database) — récupération des données films : titre, affiche, description, note, genres, réalisateur, casting
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Guide d'utilisation
 
-### Premium Partners
+1. Créer un compte
+Rendez-vous sur la page d'inscription et renseignez vos informations (nom, prénom, nom d'utilisateur, adresse mail et mot de passe). Une fois le formulaire validé, vous êtes automatiquement connecté et redirigé vers l'accueil.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+![Création de compte](docs/screenshots/inscription.png)
 
-## Contributing
+2. Rechercher un film
+Depuis la barre de navigation, accédez à la page "Rechercher un film". Tapez le titre d'un film dans le champ de recherche : les résultats proviennent de l'API TMDB et s'affichent avec l'affiche, le titre et l'année de sortie.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Recherche de film](docs/screenshots/recherche.png)
 
-## Code of Conduct
+3. Ajouter un film en favori
+Sur la page de recherche, cliquez sur le bouton **Ajouter aux favoris** sous le film souhaité. Le film apparaît ensuite dans votre liste de favoris.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Favoris](docs/screenshots/favoris.png)
 
-## Security Vulnerabilities
+4. Gérer ses amis
+Depuis la page **Amis**, recherchez un utilisateur par son nom d'utilisateur et envoyez-lui une demande d'ami. Vous pouvez également supprimer un ami depuis cette même page.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Gestion des amis](docs/screenshots/amis.png)
 
-## License
+5. Partager un film
+Depuis votre liste de favoris, partagez un film à l'un de vos amis en sélectionnant le destinataire et en ajoutant un message optionnel. Les films reçus et envoyés sont visibles dans la page **Partages**.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![Partage de film](docs/screenshots/partages.png)
+
+
+
+## MCD
+
+![MCD](docs/mcd.png)

@@ -42,11 +42,12 @@ Sur la page de recherche, cliquez sur le bouton "Ajouter aux favoris" sous le fi
 Depuis la page "Amis", recherchez un utilisateur par son nom d'utilisateur et envoyez-lui une demande d'ami. Vous pouvez également supprimer un ami depuis cette même page.
 
 ![Gestion des amis](docs/screens/4.png)
+![Gestion des amis](docs/screens/5.png)
 
 5. Partager un film
 Depuis votre liste de favoris, partagez un film à l'un de vos amis en sélectionnant le destinataire et en ajoutant un message optionnel. Les films reçus et envoyés sont visibles dans la page "Partages".
 
-![Partage de film](docs/screens/5.png)
+![Partage de film](docs/screens/6.png)
 
 
 

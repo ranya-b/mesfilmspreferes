@@ -24,7 +24,7 @@ API externe
 ## Guide d'utilisation
 
 1. Créer un compte
-Rendez-vous sur la page d'inscription et renseignez vos informations (nom, prénom, nom d'utilisateur, adresse mail et mot de passe). Une fois le formulaire validé, vous êtes automatiquement connecté et redirigé vers l'accueil.
+<br>Rendez-vous sur la page d'inscription et renseignez vos informations (nom, prénom, nom d'utilisateur, adresse mail et mot de passe). Une fois le formulaire validé, vous êtes automatiquement connecté et redirigé vers l'accueil.
 
 ![Création de compte](docs/screens/1.png)
 
